@@ -13,6 +13,7 @@ public class SamplesResource {
 
     @GET
     public String hello() {
+        System.out.println("-- " + supplier);
         return supplier.hey();
     }
 
