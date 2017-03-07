@@ -3,11 +3,8 @@ package com.airhacks.books.boundary;
 
 import com.airhacks.books.entity.Book;
 import java.net.URI;
-import java.util.List;
 import static java.util.concurrent.CompletableFuture.supplyAsync;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.enterprise.concurrent.ManagedExecutorService;
@@ -52,10 +49,8 @@ public class BooksResource {
     @GET
     public void all(@Suspended AsyncResponse response) {
         response.setTimeout(2, TimeUnit.SECONDS);
-
-        Consumer<Object> consumer = response::resume;
-        Supplier<List<Book>> supplier = this.bookStore::all;
-        supplyAsync(supplier, this.mes).thenAccept(consumer);
+        supplyAsync(this.bookStore::all, this.mes).
+                thenAccept(response::resume);
 
     }
 
