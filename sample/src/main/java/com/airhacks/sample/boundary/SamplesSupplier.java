@@ -17,5 +17,9 @@ public class SamplesSupplier {
         System.out.println("saved = " + sample);
     }
 
+    public Sample findById(long id) {
+        return new Sample("fake " + id);
+    }
+
 
 }
