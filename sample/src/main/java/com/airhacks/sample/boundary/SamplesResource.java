@@ -2,6 +2,8 @@
 package com.airhacks.sample.boundary;
 
 import javax.inject.Inject;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
@@ -12,9 +14,10 @@ public class SamplesResource {
     SamplesSupplier supplier;
 
     @GET
-    public String hello() {
+    public JsonObject hello() {
         System.out.println("-- " + supplier);
-        return supplier.hey();
+        return Json.createObjectBuilder().add("result", supplier.hey()).build();
+
     }
 
 

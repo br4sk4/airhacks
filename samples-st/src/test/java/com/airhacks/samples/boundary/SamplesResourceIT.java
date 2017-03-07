@@ -2,10 +2,14 @@
  */
 package com.airhacks.samples.boundary;
 
+import javax.json.JsonObject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
-import static org.junit.Assert.assertNotNull;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,9 +30,12 @@ public class SamplesResourceIT {
 
     @Test
     public void hello() {
-        String result = this.tut.request().get(String.class);
-        assertNotNull(result);
-        System.out.println("result = " + result);
+        Response response = this.tut.request(MediaType.APPLICATION_JSON).get();
+        assertThat(response.getStatus(), is(200));
+        JsonObject json = response.readEntity(JsonObject.class);
+        System.out.println("result = " + json);
+
+        System.out.println("-- " + json.getString("result"));
 
     }
 
