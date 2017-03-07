@@ -21,4 +21,5 @@ https://github.com/AdamBien/docklands
 https://github.com/samolisov/spring-vs-ejb-vs-cdi-benchmark
 https://github.com/AdamBien/stateful
 
-
+http://openjpa.apache.org/jest-examples.html
+http://www.eclipse.org/eclipselink/documentation/2.5/solutions/restful_jpa004.htm

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <button onclick="send()">Send</button>
+        <script>
+            var websocket = new WebSocket("ws://localhost:8080/websockets/messages");
+            websocket.onopen = function(e){
+                console.log(e);
+            }
+            websocket.onmessage = function(e){
+                console.log("message received",e);
+            }
+            function send(){
+                console.log("sending");
+                websocket.send("hello from browser");
+                }
+        </script>
+    </body>
+</html>
