@@ -14,11 +14,11 @@ public class SamplesSupplier {
     }
 
     public void save(Sample sample) {
-        System.out.println("saved = " + sample);
+        System.out.println("probably saved = " + sample);
     }
 
     public Sample findById(long id) {
-        return new Sample("fake " + id);
+        return new Sample("micro fake " + id);
     }
 
 
