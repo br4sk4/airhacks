@@ -7,7 +7,7 @@ import com.airhacks.di.SoptimInject;
 public class SoptimMicroservice {
 
     @SoptimInject
-    MessageStore ms;
+    private MessageStore ms;
 
     String hugo;
 

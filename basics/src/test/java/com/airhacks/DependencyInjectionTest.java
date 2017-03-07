@@ -20,6 +20,7 @@ public class DependencyInjectionTest {
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
             if (field.isAnnotationPresent(SoptimInject.class)) {
+                field.setAccessible(true);
                 System.out.println("annotated: " + field);
                 Class<?> messageStoreClass = field.getType();
                 Object messageStore = messageStoreClass.newInstance();
