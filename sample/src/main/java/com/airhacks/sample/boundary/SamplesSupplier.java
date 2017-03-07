@@ -1,30 +1,20 @@
 
 package com.airhacks.sample.boundary;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Instance;
-import javax.inject.Inject;
+import com.airhacks.sample.entity.Sample;
+import java.util.Arrays;
+import java.util.List;
 import javax.interceptor.Interceptors;
 
 @Interceptors(BusinessTransactionMonitoring.class)
 public class SamplesSupplier {
 
-    @Inject
-    Instance<Importer> importers;
-
-    @PostConstruct
-    public void init() {
-        System.out.println("Initialization happens here");
+    public List<Sample> samples() {
+        return Arrays.asList(new Sample("duke"), new Sample("nuke"));
     }
 
-
-    public String hey() {
-        String retVal = "-";
-
-        for (Importer importer : importers) {
-            retVal += importer.importContent();
-        }
-        return retVal;
+    public void save(Sample sample) {
+        System.out.println("saved = " + sample);
     }
 
 
