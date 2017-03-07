@@ -2,10 +2,8 @@
 package com.airhacks.sample.boundary;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.Singleton;
 import javax.interceptor.Interceptors;
 
-@Singleton
 @Interceptors(BusinessTransactionMonitoring.class)
 public class SamplesSupplier {
 
