@@ -20,7 +20,7 @@ public class SamplesSupplier {
 
     public void save(Sample sample) {
         System.out.println("probably saved = " + sample);
-        sc.setRollbackOnly();
+        //sc.setRollbackOnly();
     }
 
     public Sample findById(long id) {

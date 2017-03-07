@@ -18,3 +18,5 @@ https://github.com/AdamBien/docklands
  6399  docker push localhost:5000/soptim/samples
  docker run -d -p 8484:8080 --name soptim2 localhost:500/soptim/samples
 
+ https://github.com/samolisov/spring-vs-ejb-vs-cdi-benchmark
+

@@ -29,7 +29,7 @@ public class SamplesResourceIT {
     @Before
     public void initClient() {
         this.client = ClientBuilder.newClient();
-        this.tut = this.client.target("http://localhost:8485/sample/resources/samples");
+        this.tut = this.client.target("http://localhost:8080/sample/resources/samples");
     }
 
     @Test
